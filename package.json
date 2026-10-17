@@ -1,0 +1,13 @@
+{
+  "name": "shyama",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shyama study focus app",
+  "scripts": {
+    "start": "vite --host 0.0.0.0"
+  },
+  "dependencies": {
+    "vite": "6.1.0"
+  },
+  "devDependencies": {}
+}
