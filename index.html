@@ -1,85 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shyama - Focus Mode</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 24px;
-      background: #080d18;
-      color: #f4f7ff;
-      font-family: Arial, sans-serif;
-    }
-    h1 { color: #35e0cf; }
-    .card {
-      background: #121c2d;
-      padding: 20px;
-      border-radius: 18px;
-      margin: 18px 0;
-      border: 1px solid #26364c;
-    }
-    button {
-      background: #35e0cf;
-      color: #08121b;
-      padding: 12px 18px;
-      border: 0;
-      border-radius: 10px;
-      font-weight: bold;
-      margin: 5px;
-    }
-    #time { font-size: 36px; font-weight: bold; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shyama | Focus on Your Dream</title>
+
+<style>
+:root {
+  --bg: #070b14;
+  --card: #111a2b;
+  --teal: #42e8d1;
+  --gold: #f3c969;
+  --text: #f4f7ff;
+  --muted: #9ba9bd;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 22px 16px 100px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--teal);
+}
+.tag {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.hero {
+  background: linear-gradient(145deg,#182b40,#101421 75%);
+  border: 1px solid #29384a;
+  border-radius: 24px;
+  padding: 24px 20px;
+  margin-bottom: 18px;
+}
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+h1 {
+  font-size: 31px;
+  line-height: 1.2;
+  margin: 12px 0;
+}
+h1 span { color: var(--teal); }
+p { color: var(--muted); line-height: 1.6; }
+.card {
+  background: var(--card);
+  border: 1px solid #243248;
+  border-radius: 20px;
+  padding: 19px;
+  margin-bottom: 16px;
+}
+.card h2 { margin: 0 0 12px; font-size: 18px; }
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 8px;
+  margin-top: 18px;
+}
+.unit {
+  text-align: center;
+  background: #080f1c;
+  padding: 12px 2px;
+  border-radius: 12px;
+}
+.unit strong {
+  display: block;
+  color: var(--teal);
+  font-size: 23px;
+}
+.unit small { color: var(--muted); font-size: 10px; }
+#time {
+  font-size: 38px;
+  font-weight: bold;
+  text-align: center;
+  margin: 18px 0;
+  font-variant-numeric: tabular-nums;
+}
+button {
+  border: 0;
+  border-radius: 11px;
+  padding: 12px 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.primary { background: var(--teal); color: #06151a; }
+.secondary {
+  background: #202d41;
+  color: var(--text);
+  border: 1px solid #35445a;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+input, select {
+  background: #080f1c;
+  color: white;
+  border: 1px solid #35445a;
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+  margin: 6px 0;
+}
+.task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #273449;
+}
+.task:last-child { border-bottom: 0; }
+.task input { width: 19px; margin: 0; accent-color: var(--teal); }
+.task.done span { text-decoration: line-through; color: var(--muted); }
+.subjects {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 9px;
+}
+.subject {
+  text-align: center;
+  padding: 15px 5px;
+  background: #080f1c;
+  border-radius: 13px;
+  color: var(--teal);
+  font-weight: bold;
+}
+.subject small {
+  display: block;
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: normal;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0c1321;
+  border-top: 1px solid #28364b;
+  display: flex;
+  justify-content: space-around;
+  padding: 13px 3px;
+}
+footer a {
+  color: var(--muted);
+  font-size: 11px;
+  text-decoration: none;
+  text-align: center;
+}
+footer a:first-child { color: var(--teal); }
+.note { font-size: 12px; }
+</style>
 </head>
+
 <body>
-  <h1>SHYAMA</h1>
-  <p>Your dream deserves your focus.</p>
-
-  <div class="card">
-    <h2>Study Timer</h2>
-    <div id="time">00:00:00</div>
-    <button onclick="startTimer()">Start</button>
-    <button onclick="pauseTimer()">Pause</button>
-    <button onclick="resetTimer()">Reset</button>
+<header>
+  <div>
+    <div class="logo">SHYAMA</div>
+    <div class="tag">YOUR DREAM. YOUR MISSION.</div>
   </div>
+  <div style="font-size:25px">✦</div>
+</header>
 
-  <div class="card">
-    <h2>Today's Mission</h2>
-    <p>Physics • Chemistry • Mathematics</p>
-    <p>One focused session at a time.</p>
+<section class="hero">
+  <div class="eyebrow">WELCOME TO YOUR FOCUS SPACE</div>
+  <h1>One dream.<br>One mission.<br><span>Keep moving.</span></h1>
+  <p>Small steps every day. Build the future you dream of.</p>
+</section>
+
+<section class="card">
+  <h2>🎯 JEE Main 2027</h2>
+  <p>Every focused day brings you closer.</p>
+  <label for="examDate" class="note">Choose your exam countdown date</label>
+  <input id="examDate" type="date" value="2027-01-22">
+  <div class="countdown">
+    <div class="unit"><strong id="days">--</strong><small>DAYS</small></div>
+    <div class="unit"><strong id="hours">--</strong><small>HOURS</small></div>
+    <div class="unit"><strong id="mins">--</strong><small>MINUTES</small></div>
+    <div class="unit"><strong id="secs">--</strong><small>SECONDS</small></div>
   </div>
+  <p class="note" id="countLabel"></p>
+</section>
 
-  <script>
-    let seconds = 0;
-    let interval = null;
+<section class="card">
+  <h2>⏱ Study Timer</h2>
+  <p>Give your attention to one task at a time.</p>
+  <div id="time">00:00:00</div>
+  <div class="actions">
+    <button class="primary" onclick="startTimer()">Start</button>
+    <button class="secondary" onclick="pauseTimer()">Pause</button>
+    <button class="secondary" onclick="resetTimer()">Reset</button>
+  </div>
+  <p class="note" id="timerStatus">Ready for your next session.</p>
+</section>
 
-    function showTime() {
-      const h = String(Math.floor(seconds / 3600)).padStart(2, "0");
-      const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
-      const s = String(seconds % 60).padStart(2, "0");
-      document.getElementById("time").textContent = `${h}:${m}:${s}`;
-    }
+<section class="card">
+  <h2>📚 Today's Mission</h2>
+  <div class="subjects">
+    <div class="subject">Physics<small>Build concepts</small></div>
+    <div class="subject">Chemistry<small>Revise smartly</small></div>
+    <div class="subject">Maths<small>Practice daily</small></div>
+  </div>
+  <div id="tasks">
+    <label class="task"><input type="checkbox"><span>Physics: revise one topic</span></label>
+    <label class="task"><input type="checkbox"><span>Chemistry: solve practice questions</span></label>
+    <label class="task"><input type="checkbox"><span>Maths: practise questions</span></label>
+  </div>
+  <input id="taskInput" type="text" placeholder="Add your own study task">
+  <button class="primary" onclick="addTask()">+ Add Task</button>
+  <p class="note" id="progress">0 tasks completed</p>
+</section>
 
-    function startTimer() {
-      if (interval !== null) return;
-      interval = setInterval(() => {
-        seconds++;
-        showTime();
-      }, 1000);
-    }
+<section class="card">
+  <h2>✨ Remember Why You Started</h2>
+  <p>“Consistency turns effort into progress.”</p>
+  <p class="note">Focus on what you can do today. Your journey is built one session at a time.</p>
+</section>
 
-    function pauseTimer() {
-      clearInterval(interval);
-      interval = null;
-    }
+<footer>
+  <a href="#top">⌂<br>Home</a>
+  <a href="#tasks">▤<br>Targets</a>
+  <a href="#time">◷<br>Timer</a>
+  <a href="#progress">▥<br>Reports</a>
+</footer>
 
-    function resetTimer() {
-      pauseTimer();
-      seconds = 0;
-      showTime();
-    }
-  </script>
+<script>
+let seconds = 0;
+let interval = null;
+
+function showTime() {
+  const h = String(Math.floor(seconds / 3600)).padStart(2,"0");
+  const m = String(Math.floor((seconds % 3600) / 60)).padStart(2,"0");
+  const s = String(seconds % 60).padStart(2,"0");
+  document.getElementById("time").textContent = `${h}:${m}:${s}`;
+}
+
+function startTimer() {
+  if (interval !== null) return;
+  document.getElementById("timerStatus").textContent = "Study session running.";
+  interval = setInterval(() => {
+    seconds++;
+    showTime();
+  }, 1000);
+}
+
+function pauseTimer() {
+  clearInterval(interval);
+  interval = null;
+  document.getElementById("timerStatus").textContent = "Session paused.";
+}
+
+function resetTimer() {
+  pauseTimer();
+  seconds = 0;
+  showTime();
+  document.getElementById("timerStatus").textContent = "Timer reset.";
+}
+
+function updateCountdown() {
+  const value = document.getElementById("examDate").value;
+  if (!value) return;
+  const target = new Date(value + "T00:00:00").getTime();
+  const diff = target - Date.now();
+
+  if (diff <= 0) {
+    ["days","hours","mins","secs"].forEach(id => {
+      document.getElementById(id).textContent = "0";
+    });
+    document.getElementById("countLabel").textContent =
+      "Your selected date has arrived or passed.";
+    return;
+  }
+
+  document.getElementById("days").textContent =
+    Math.floor(diff / 86400000);
+  document.getElementById("hours").textContent =
+    Math.floor(diff % 86400000 / 3600000);
+  document.getElementById("mins").textContent =
+    Math.floor(diff % 3600000 / 60000);
+  document.getElementById("secs").textContent =
+    Math.floor(diff % 60000 / 1000);
+  document.getElementById("countLabel").textContent =
+    "Countdown to your selected date.";
+}
+
+document.getElementById("examDate").addEventListener("change", updateCountdown);
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+function updateProgress() {
+  const boxes = [...document.querySelectorAll("#tasks input[type=checkbox]")];
+  let done = 0;
+  boxes.forEach(box => {
+    box.closest(".task").classList.toggle("done", box.checked);
+    if (box.checked) done++;
+  });
+  document.getElementById("progress").textContent =
+    `${done} of ${boxes.length} tasks completed`;
+}
+
+document.getElementById("tasks").addEventListener("change", updateProgress);
+
+function addTask() {
+  const input = document.getElementById("taskInput");
+  const value = input.value.trim();
+  if (!value) {
+    input.focus();
+    return;
+  }
+  const label = document.createElement("label");
+  label.className = "task";
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  const span = document.createElement("span");
+  span.textContent = value;
+  label.append(checkbox, span);
+  document.getElementById("tasks").appendChild(label);
+  input.value = "";
+  updateProgress();
+}
+</script>
 </body>
 </html>
