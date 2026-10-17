@@ -17,8 +17,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Check project files
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Check Android project
         run: |
-          echo "Shyama repository is ready"
-          test -f index.html
-          test -f package.json
+          echo "Checking Shyama Android project..."
+          test -f settings.gradle
+          test -f app/build.gradle
