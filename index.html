@@ -3,523 +3,429 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070b14">
-<title>SHYAMA | Focus on Your Dream</title>
+<meta name="theme-color" content="#050c1b">
+<title>Shyama — Dream. Plan. Achieve.</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-
-:root {
-  --bg:#070b14;
-  --card:#111b2c;
-  --teal:#45ead4;
-  --gold:#f3cc76;
-  --text:#f4f7ff;
-  --muted:#9eacc0;
-  --line:#2b3a50;
+:root{
+  --bg:#050b18;
+  --panel:#0b162a;
+  --panel2:#101e36;
+  --line:#213451;
+  --text:#f3f7ff;
+  --muted:#9aabc5;
+  --green:#31e6a0;
+  --blue:#36c8f4;
+  --gold:#ffd477;
+  --purple:#a98bff;
 }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  margin:0;
-  padding:22px 14px 100px;
-  background:radial-gradient(ellipse at top,#172c40,transparent 45%),var(--bg);
-  color:var(--text);
-  font-family:'DM Sans',Arial,sans-serif;
+*{box-sizing:border-box}
+body{
+  margin:0;background:
+  radial-gradient(ellipse at 20% 0%,#102b48 0%,transparent 40%),
+  var(--bg);color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  min-height:100vh;padding-bottom:95px
 }
-.app { max-width:760px; margin:auto; }
-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:24px;
+button,input,select{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{
+  outline:2px solid var(--green);outline-offset:3px
 }
-.logo {
-  font:800 28px 'Manrope',sans-serif;
-  letter-spacing:4px;
-  color:var(--teal);
+.topbar{
+  max-width:1200px;margin:auto;padding:18px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-bottom:1px solid #20314c
 }
-.tag {
-  color:var(--gold);
-  font-size:10px;
-  letter-spacing:2px;
-  margin-top:5px;
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:49px;height:49px;border-radius:16px;
+  display:grid;place-items:center;font-size:27px;
+  background:linear-gradient(145deg,#143d50,#14233e);
+  border:1px solid #2c5269
 }
-.spark { font-size:26px; color:var(--gold); }
-.hero {
-  background:linear-gradient(140deg,#1a3044,#101725);
-  border:1px solid #39485b;
-  border-radius:26px;
-  padding:27px 21px;
-  margin-bottom:18px;
+.brand h1{font-size:25px;margin:0;font-weight:850;letter-spacing:.2px}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:12px;letter-spacing:1px}
+.top-right{display:flex;align-items:center;gap:9px}
+.pill{
+  border:1px solid #25435a;background:#0d2031;
+  padding:10px 13px;border-radius:14px;font-size:12px;color:#dce8f7
 }
-.eyebrow,.kicker {
-  color:var(--gold);
-  font-size:10px;
-  letter-spacing:2px;
-  font-weight:700;
+.icon-btn{
+  border:1px solid var(--line);background:var(--panel);
+  color:white;width:43px;height:43px;border-radius:14px;font-size:20px
 }
-h1 {
-  font:800 clamp(32px,7vw,43px)/1.15 'Manrope',sans-serif;
-  letter-spacing:-1px;
-  margin:17px 0;
+main{max-width:1200px;margin:auto;padding:20px}
+.hero{
+  min-height:245px;border:1px solid #28415e;border-radius:24px;
+  padding:30px;display:flex;align-items:center;justify-content:space-between;
+  gap:20px;overflow:hidden;position:relative;
+  background:
+   linear-gradient(90deg,rgba(4,12,28,.97) 0%,rgba(7,20,39,.85) 46%,rgba(8,17,31,.18) 100%),
+   radial-gradient(ellipse at 82% 25%,#f6ae65 0%,#633f50 20%,#172b49 45%,#091426 75%);
+  box-shadow:0 18px 55px #0005
 }
-h1 span { color:var(--teal); }
-p { color:var(--muted); line-height:1.7; }
-.card {
-  background:linear-gradient(145deg,#131e30,#101827);
-  border:1px solid var(--line);
-  border-radius:23px;
-  padding:21px 18px;
-  margin-bottom:17px;
+.hero:after{
+  content:"";position:absolute;inset:auto 0 0;height:65px;
+  background:linear-gradient(transparent,#071225a8);pointer-events:none
 }
-.card h2 {
-  font:700 19px 'Manrope',sans-serif;
-  margin:8px 0 12px;
+.hero-copy{position:relative;z-index:1;max-width:550px}
+.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:800}
+.hero h2{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:13px 0}
+.hero h2 span{color:var(--gold)}
+.hero p{color:#c0cde0;line-height:1.7;margin:0}
+.hero-art{font-size:clamp(75px,12vw,130px);filter:drop-shadow(0 10px 30px #0008);position:relative;z-index:1}
+.section-title{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:10px;margin:27px 0 13px
 }
-input {
-  width:100%;
-  padding:13px;
-  background:#080f1c;
-  border:1px solid #35445a;
-  color:white;
-  border-radius:12px;
-  margin:7px 0;
-  font-size:14px;
+.section-title h2{font-size:18px;margin:0}
+.section-title small{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:18px}
+.card{
+  background:linear-gradient(145deg,#0e1b31,#091426);
+  border:1px solid var(--line);border-radius:22px;padding:21px;
+  box-shadow:0 12px 35px #0002;min-width:0
 }
-.note { font-size:12px; }
-.countdown {
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:8px;
-  margin-top:17px;
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:17px}
+.card-head h3{font-size:17px;margin:0}
+.card-head .emoji{font-size:22px;margin-right:8px}
+.subtle{font-size:12px;color:var(--muted)}
+.task-list{display:grid;gap:10px}
+.task{
+  display:flex;align-items:center;gap:11px;padding:13px 11px;
+  border-radius:14px;background:#0d1a2e;border:1px solid #1c2d47
 }
-.unit {
-  text-align:center;
-  overflow:hidden;
-  background:#080f1c;
-  border:1px solid #2b3d54;
-  border-radius:13px;
+.task input[type=checkbox]{accent-color:var(--green);width:19px;height:19px;flex-shrink:0}
+.task-info{flex:1;min-width:0}
+.task-name{font-weight:650;font-size:14px;overflow-wrap:anywhere}
+.task-detail{font-size:12px;color:var(--muted);margin-top:4px}
+.task.done .task-name{text-decoration:line-through;color:#8ba0b7}
+.delete-btn{border:0;background:transparent;color:#8fa3bf;font-size:18px;padding:5px}
+.delete-btn:hover{color:#ff8e9b}
+.progress-row{display:flex;justify-content:space-between;color:#b9c9df;font-size:12px;margin:18px 0 9px}
+.progress{height:9px;background:#1b2a43;border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:99px;transition:width .3s}
+.btn{
+  border:1px solid #29415e;border-radius:12px;padding:11px 15px;
+  color:var(--text);background:#15253e;font-weight:700
 }
-.flip-top {
-  height:46px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(#1b2940,#111c2e);
-  color:var(--teal);
-  font:800 clamp(20px,5.5vw,28px) 'Manrope',sans-serif;
-  font-variant-numeric:tabular-nums;
+.btn:hover{filter:brightness(1.15)}
+.btn-primary{background:linear-gradient(100deg,#2de39b,#2ac9c8);border:0;color:#05231e}
+.btn-danger{background:#321a2a;color:#ffb3c0;border-color:#603043}
+.btn-small{padding:8px 11px;font-size:12px}
+.full{width:100%}
+.timer-card{text-align:center}
+.timer-ring{
+  width:190px;height:190px;max-width:100%;aspect-ratio:1;
+  margin:15px auto 20px;border-radius:50%;display:flex;
+  flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(circle at center,#0b182b 59%,transparent 60%);
+  border:6px solid #1e5e62;
+  box-shadow:0 0 0 5px #102d3b,0 0 30px #1de5a12b;
+  position:relative
 }
-.unit small {
-  display:block;
-  padding:9px 1px;
-  color:var(--muted);
-  font-size:9px;
-  letter-spacing:1px;
+.timer-ring:before{
+  content:"";position:absolute;inset:-6px;border-radius:50%;
+  border:6px solid transparent;border-top-color:var(--green);
+  border-right-color:var(--blue);transform:rotate(-35deg)
 }
-.flip { animation:flip .3s ease; }
-@keyframes flip {
-  from { transform:perspective(150px) rotateX(-25deg); opacity:.5; }
-  to { transform:perspective(150px) rotateX(0); opacity:1; }
+.time{font-size:32px;font-weight:850;font-variant-numeric:tabular-nums;letter-spacing:1px}
+.timer-status{color:var(--green);font-size:12px;margin-top:7px}
+.timer-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.timer-controls .start{grid-column:1/-1;padding:14px}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.stat-card{position:relative;overflow:hidden}
+.stat-card h3{font-size:14px;margin:0 0 16px}
+.stat-number{font-size:34px;font-weight:850;letter-spacing:-1px}
+.stat-caption{font-size:12px;color:var(--muted);margin-top:7px}
+.stat-icon{font-size:23px;margin-right:7px}
+.goal-line{display:flex;gap:9px;align-items:center;margin-top:15px}
+.goal-line input{width:70px}
+input,select{
+  color:var(--text);background:#071326;border:1px solid #2a405e;
+  border-radius:10px;padding:11px;min-width:0;width:100%
 }
-#time {
-  text-align:center;
-  font:800 clamp(35px,9vw,48px) 'Manrope',sans-serif;
-  margin:24px 0;
-  font-variant-numeric:tabular-nums;
+label{font-size:12px;color:#b7c8df;display:block;margin-bottom:7px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:14px;min-width:0}
+.custom-target{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:15px;border:1px solid #273b59;background:#0c1a30;border-radius:15px;margin-top:10px
 }
-button {
-  border:0;
-  border-radius:12px;
-  padding:13px 16px;
-  font-weight:700;
-  cursor:pointer;
+.custom-target h4{margin:0 0 5px;font-size:14px}
+.custom-target p{margin:0;color:var(--muted);font-size:12px}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:17px 0}
+.count-box{
+  padding:15px 5px;border:1px solid #40366b;border-radius:13px;
+  background:linear-gradient(145deg,#201b48,#111a36);text-align:center
 }
-.primary {
-  background:linear-gradient(135deg,#58f2dc,#31d7bf);
-  color:#06151a;
+.count-num{font-size:clamp(20px,3vw,29px);font-weight:850;font-variant-numeric:tabular-nums}
+.count-label{font-size:10px;color:#b7b6d8;text-transform:uppercase;letter-spacing:.7px;margin-top:5px}
+.quote{
+  margin-top:18px;border:1px solid #3a3855;border-radius:22px;padding:25px;
+  background:linear-gradient(110deg,#101c30,#1a2441 55%,#4b392b);
+  display:flex;align-items:center;justify-content:space-between;gap:15px
 }
-.secondary {
-  background:#202d41;
-  color:white;
-  border:1px solid #35445a;
+.quote h3{font-size:13px;color:var(--gold);margin:0 0 12px}
+.quote p{font-size:clamp(17px,2.5vw,24px);line-height:1.5;font-weight:750;margin:0}
+.quote .book{font-size:65px}
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:10;
+  background:#071224f5;backdrop-filter:blur(18px);
+  border-top:1px solid #263550;display:flex;justify-content:center;
+  padding:8px 10px max(8px,env(safe-area-inset-bottom))
 }
-.actions {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:9px;
+.nav-inner{width:100%;max-width:750px;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.nav-btn{
+  background:transparent;border:0;border-radius:13px;color:#8394b1;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:8px 2px;font-size:11px;font-weight:650
 }
-.subjects {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:8px;
-  margin:15px 0;
+.nav-btn .nav-icon{font-size:22px}
+.nav-btn.active{color:var(--green);background:#102a30}
+.page{display:none}
+.page.active{display:block;animation:fade .2s ease}
+@keyframes fade{from{opacity:.5;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.empty{padding:22px;text-align:center;color:var(--muted);font-size:13px}
+.notice{color:var(--muted);font-size:12px;line-height:1.6;margin-top:12px}
+.report-row{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #20314a;font-size:13px}
+.report-row:last-child{border-bottom:0}
+.setting-line{padding:15px 0;border-bottom:1px solid #20314a}
+.setting-line:last-child{border-bottom:0}
+.setting-line h3{font-size:14px;margin:0 0 7px}
+.setting-line p{font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 12px}
+footer{text-align:center;color:#647895;font-size:11px;margin:24px 0 5px}
+@media(max-width:760px){
+  main{padding:13px}
+  .topbar{padding:14px}
+  .brand h1{font-size:21px}
+  .brand p{font-size:10px;letter-spacing:.5px}
+  .pill{display:none}
+  .hero{min-height:210px;padding:22px}
+  .hero-art{font-size:76px}
+  .grid{grid-template-columns:1fr;gap:13px}
+  .stats-grid{gap:12px;margin-top:13px}
+  .card{padding:16px;border-radius:19px}
+  .stat-number{font-size:28px}
+  .timer-ring{width:175px}
+  .quote{padding:19px}
+  .quote .book{font-size:42px}
 }
-.subject {
-  padding:15px 4px;
-  text-align:center;
-  border:1px solid #293950;
-  border-radius:14px;
-  background:#080f1c;
-  color:var(--teal);
-  font-weight:800;
-}
-.subject small {
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-  margin-top:7px;
-  font-weight:400;
-}
-.task {
-  display:flex;
-  gap:10px;
-  align-items:center;
-  padding:13px 0;
-  border-bottom:1px solid #28374c;
-  font-size:14px;
-}
-.task input {
-  width:19px;
-  height:19px;
-  margin:0;
-  accent-color:var(--teal);
-}
-.task.done span {
-  color:var(--muted);
-  text-decoration:line-through;
-}
-.quote {
-  font:600 18px/1.55 'Manrope',sans-serif;
-  color:#e3eafa;
-}
-.quote em { color:var(--teal); font-style:normal; }
-.page { display:none; }
-.page.active { display:block; }
-.photo-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-.photo-card {
-  min-height:135px;
-  padding:13px;
-  display:flex;
-  align-items:flex-end;
-  background:linear-gradient(145deg,#244459,#101827 70%);
-  border:1px solid #35445a;
-  border-radius:16px;
-  color:white;
-  font-weight:700;
-}
-.photo-card small {
-  display:block;
-  color:#c2d0df;
-  font-size:10px;
-  margin-top:5px;
-}
-.track {
-  height:6px;
-  background:#080f1c;
-  border-radius:20px;
-  margin-top:12px;
-  overflow:hidden;
-}
-#progressBar {
-  height:100%;
-  width:0;
-  background:linear-gradient(90deg,var(--teal),var(--gold));
-}
-footer {
-  position:fixed;
-  z-index:10;
-  bottom:0;
-  left:0;
-  right:0;
-  display:flex;
-  justify-content:space-around;
-  background:#0a111ef5;
-  border-top:1px solid #2a394e;
-  padding:10px 2px;
-}
-footer button {
-  background:transparent;
-  color:var(--muted);
-  font-size:11px;
-  padding:5px;
-}
-footer button.active { color:var(--teal); }
-@media(min-width:600px) {
-  body { padding-left:22px; padding-right:22px; }
-  .hero { padding:34px 30px; }
-  .card { padding:25px; }
+@media(max-width:390px){
+  .hero-art{font-size:55px}
+  .hero{padding:17px}
+  .hero p{font-size:12px}
+  .card{padding:13px}
+  .countdown-grid{gap:5px}
+  .count-box{padding:12px 2px}
+  .count-num{font-size:20px}
+  .nav-btn{font-size:10px}
+  .nav-btn .nav-icon{font-size:20px}
 }
 </style>
 </head>
 
 <body>
-<div class="app">
-<header>
-  <div>
-    <div class="logo">SHYAMA</div>
-    <div class="tag">YOUR DREAM. YOUR MISSION.</div>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">🎯</div>
+    <div>
+      <h1>Shyama</h1>
+      <p>DREAM · PLAN · ACHIEVE</p>
+    </div>
   </div>
-  <div class="spark">✦</div>
+  <div class="top-right">
+    <div class="pill">🔥 Keep Going · You Can Do It</div>
+    <button class="icon-btn" aria-label="Settings" onclick="showPage('more')">⚙</button>
+  </div>
 </header>
 
 <main>
-<section class="page active" id="home">
-  <div class="hero">
-    <div class="eyebrow">WELCOME TO YOUR FOCUS SPACE</div>
-    <h1>One dream.<br>One mission.<br><span>Keep moving.</span></h1>
-    <p>Small steps every day. Build the future you dream of.</p>
-  </div>
-
-  <section class="card">
-    <div class="kicker">YOUR NEXT MILESTONE</div>
-    <h2 id="examHeading">🎯 JEE Main 2027</h2>
-    <p>Every focused day brings you closer.</p>
-    <label class="note" for="examDate">Choose countdown date</label>
-    <input id="examDate" type="date" value="2027-01-22">
-    <div class="countdown">
-      <div class="unit"><div class="flip-top" id="days">--</div><small>DAYS</small></div>
-      <div class="unit"><div class="flip-top" id="hours">--</div><small>HOURS</small></div>
-      <div class="unit"><div class="flip-top" id="mins">--</div><small>MINUTES</small></div>
-      <div class="unit"><div class="flip-top" id="secs">--</div><small>SECONDS</small></div>
+  <!-- HOME -->
+  <section id="home" class="page active">
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Your future starts today</div>
+        <h2>Mehnat aaj ki hai,<br><span>safalta kal ki.</span></h2>
+        <p>Bas rukna mat. Har din ek kadam apne sapne ki taraf. 💪</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">🏔️</div>
     </div>
-    <p class="note" id="countLabel"></p>
-  </section>
 
-  <section class="card">
-    <div class="kicker">ONE SESSION AT A TIME</div>
-    <h2>⏱ Study Timer</h2>
-    <p>Give your attention to one task at a time.</p>
-    <div id="time">00:00:00</div>
-    <div class="actions">
-      <button class="primary" onclick="startTimer()">▶️ Start</button>
-      <button class="secondary" onclick="pauseTimer()">Ⅱ Pause</button>
-      <button class="secondary" onclick="resetTimer()">↻ Reset</button>
+    <div class="grid">
+      <div class="card">
+        <div class="card-head">
+          <h3><span class="emoji">🎯</span>Today's Target</h3>
+          <span class="subtle" id="todayLabel"></span>
+        </div>
+        <div id="taskList" class="task-list"></div>
+        <div class="progress-row">
+          <span id="taskProgressText">Progress: 0 / 3</span>
+          <span id="taskPercent">0%</span>
+        </div>
+        <div class="progress"><div class="progress-fill" id="taskProgress"></div></div>
+        <button class="btn btn-small full" style="margin-top:14px" onclick="showPage('target')">＋ Manage Today's Targets</button>
+      </div>
+
+      <div class="card timer-card">
+        <div class="card-head">
+          <h3><span class="emoji">⏱️</span>Study Timer</h3>
+          <span class="subtle" id="timerMiniStatus">Ready</span>
+        </div>
+        <div class="timer-ring">
+          <div class="time" id="timerDisplay">00:00:00</div>
+          <div class="timer-status" id="timerStatus">Ready</div>
+        </div>
+        <div class="timer-controls">
+          <button class="btn btn-primary start" id="startPauseBtn" onclick="toggleTimer()">▶️ Start</button>
+          <button class="btn" onclick="pauseTimer()">Ⅱ Pause</button>
+          <button class="btn" onclick="resetTimer()">↻ Reset</button>
+        </div>
+        <p class="notice">Study time counts while the timer is running.</p>
+      </div>
     </div>
-    <p class="note" id="timerStatus">Ready for your next session.</p>
-  </section>
 
-  <section class="card">
-    <div class="kicker">SMALL STEPS. BIG PROGRESS.</div>
-    <h2>📚 Today's Mission</h2>
-    <div class="subjects">
-      <div class="subject">Physics<small>Build concepts</small></div>
-      <div class="subject">Chemistry<small>Revise smartly</small></div>
-      <div class="subject">Maths<small>Practice daily</small></div>
+    <div class="stats-grid">
+      <div class="card stat-card">
+        <h3><span class="stat-icon">🌱</span>Today's Study Hours</h3>
+        <div class="stat-number" id="studyHours">0h 0m</div>
+        <div class="stat-caption">Your effort adds up every day.</div>
+        <div class="goal-line">
+          <label for="goalInput" style="margin:0">Daily goal</label>
+          <input id="goalInput" type="number" min="1" max="24" value="6" onchange="saveGoal()">
+          <span style="font-size:12px;color:var(--muted)">hours</span>
+        </div>
+        <div class="progress" style="margin-top:13px"><div class="progress-fill" id="hoursProgress"></div></div>
+        <div class="stat-caption" id="goalText">0% of daily goal</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3><span class="emoji">🎓</span><span id="examTitleLabel">JEE Main 2027</span></h3>
+        </div>
+        <div class="countdown-grid">
+          <div class="count-box"><div class="count-num" id="days">--</div><div class="count-label">Days</div></div>
+          <div class="count-box"><div class="count-num" id="hours">--</div><div class="count-label">Hours</div></div>
+          <div class="count-box"><div class="count-num" id="minutes">--</div><div class="count-label">Minutes</div></div>
+          <div class="count-box"><div class="count-num" id="seconds">--</div><div class="count-label">Seconds</div></div>
+        </div>
+        <div class="subtle">📅 Target: <span id="examDateLabel">22 Jan 2027</span></div>
+        <button class="btn btn-small full" style="margin-top:14px" onclick="showPage('more')">✎ Edit Exam Countdown</button>
+      </div>
     </div>
-    <div id="homeTasks"></div>
-    <button class="secondary" style="width:100%" onclick="showPage('targets')">Open all targets →</button>
-    <p class="note" id="homeProgress"></p>
-  </section>
 
-  <section class="card">
-    <div class="kicker">KEEP YOUR REASON CLOSE</div>
-    <h2>✨ Remember Why You Started</h2>
-    <div class="quote">“Consistency turns effort into <em>progress.</em>”</div>
-    <p class="note">Your journey is built one session at a time.</p>
-  </section>
-</section>
-
-<section class="page" id="targets">
-  <div class="hero">
-    <div class="eyebrow">PLAN. PRACTISE. PROGRESS.</div>
-    <h1>Your daily<br><span>mission.</span></h1>
-    <p>One completed task at a time adds up.</p>
-  </div>
-  <section class="card">
-    <h2>📚 Study Targets</h2>
-    <div id="allTasks"></div>
-    <input id="taskInput" placeholder="Add your own study task">
-    <button class="primary" onclick="addTask()">＋ Add Task</button>
-    <p class="note" id="progress">0 tasks completed</p>
-    <div class="track"><div id="progressBar"></div></div>
-  </section>
-</section>
-
-<section class="page" id="timerPage">
-  <div class="hero">
-    <div class="eyebrow">QUIET THE NOISE</div>
-    <h1>Enter your<br><span>focus zone.</span></h1>
-    <p>Start a session and focus on one task.</p>
-  </div>
-  <section class="card">
-    <h2>⏱ Study Timer</h2>
-    <div id="timeLarge" style="text-align:center;font-size:38px;font-weight:800;margin:25px 0">00:00:00</div>
-    <div class="actions">
-      <button class="primary" onclick="startTimer()">▶️ Start</button>
-      <button class="secondary" onclick="pauseTimer()">Ⅱ Pause</button>
-      <button class="secondary" onclick="resetTimer()">↻ Reset</button>
+    <div class="section-title">
+      <h2>✨ My Custom Targets</h2>
+      <button class="btn btn-small" onclick="showPage('target')">View All →</button>
     </div>
-    <p class="note" id="timerStatusLarge">Ready for your next session.</p>
-    <p>This website timer does not block other apps.</p>
-  </section>
-</section>
-
-<section class="page" id="reports">
-  <div class="hero">
-    <div class="eyebrow">YOUR EFFORT MATTERS</div>
-    <h1>Progress is<br><span>built daily.</span></h1>
-  </div>
-  <section class="card">
-    <h2>📊 Study Report</h2>
-    <div class="subjects">
-      <div class="subject"><span id="reportDone">0</span><small>Completed</small></div>
-      <div class="subject"><span id="reportTotal">3</span><small>Total tasks</small></div>
-      <div class="subject"><span id="reportPct">0%</span><small>Progress</small></div>
+    <div class="card">
+      <div id="homeCustomTargets"></div>
+      <button class="btn full" style="margin-top:12px" onclick="showPage('target')">＋ Add Your Own Target</button>
     </div>
-    <div class="track"><div id="reportBar" style="height:100%;width:0;background:var(--teal)"></div></div>
-    <p id="reportMessage" class="note">Complete a task to build your report.</p>
-    <p class="note">This simple report shows checklist progress during this visit. Long-term history is not saved yet.</p>
-  </section>
-</section>
 
-<section class="page" id="more">
-  <div class="hero">
-    <div class="eyebrow">MAKE IT YOUR SPACE</div>
-    <h1>Your goals.<br><span>Your journey.</span></h1>
-    <p>Keep your dream in sight.</p>
-  </div>
-  <section class="card">
-    <h2>📅 Countdown Settings</h2>
-    <label class="note" for="nameInput">Milestone name</label>
-    <input id="nameInput" value="JEE Main 2027">
-    <button class="primary" onclick="saveMilestone()">Save name</button>
-    <p class="note" id="saveStatus">Current goal: JEE Main 2027</p>
-  </section>
-  <section class="card">
-    <h2>🏛️ Campus Inspiration</h2>
-    <p>These cards are placeholders for your five original university photos. We will add the real pictures after uploading them to GitHub.</p>
-    <div class="photo-grid">
-      <div class="photo-card">01<br><small>NIT Jamshedpur</small></div>
-      <div class="photo-card">02<br><small>NIT Jamshedpur</small></div>
-      <div class="photo-card">03<br><small>NIT Jamshedpur</small></div>
-      <div class="photo-card">04<br><small>Jadavpur University</small></div>
-      <div class="photo-card" style="grid-column:1/-1">05<br><small>Your dream destination</small></div>
+    <div class="quote">
+      <div><h3>💡 MOTIVATIONAL REMINDER</h3><p>“Aaj ki padhai,<br>kal ka future banati hai.”</p></div>
+      <div class="book" aria-hidden="true">📚</div>
     </div>
   </section>
-  <section class="card">
-    <h2>✦ About Shyama</h2>
-    <p>Native Android app blocking needs an Android app and permissions. This website cannot block other apps by itself.</p>
+
+  <!-- TARGETS -->
+  <section id="target" class="page">
+    <div class="section-title"><h2>🎯 Target Planner</h2><small>One step at a time</small></div>
+    <div class="card">
+      <div class="card-head"><h3>Today's Study Tasks</h3><span class="subtle">Daily plan</span></div>
+      <form id="taskForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="taskSubject">Subject</label>
+            <select id="taskSubject">
+              <option>Physics</option><option>Chemistry</option><option>Maths</option><option>Revision</option><option>Mock Test</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="taskAmount">Target / task</label>
+            <input id="taskAmount" maxlength="100" placeholder="e.g. 30 PYQs" required>
+          </div>
+        </div>
+        <button class="btn btn-primary full" type="submit">＋ Add Today's Task</button>
+      </form>
+      <div class="section-title"><h2>Tasks</h2><small id="targetCount"></small></div>
+      <div id="targetTaskList" class="task-list"></div>
+    </div>
+
+    <div class="section-title"><h2>✨ Custom Targets</h2></div>
+    <div class="card">
+      <form id="customForm">
+        <div class="form-group"><label for="customName">Target name</label><input id="customName" maxlength="70" placeholder="e.g. Complete JEE syllabus" required></div>
+        <div class="form-row">
+          <div class="form-group"><label for="customDate">Target date</label><input id="customDate" type="date" required></div>
+          <div class="form-group"><label for="customNote">Small note (optional)</label><input id="customNote" maxlength="100" placeholder="Keep going!"></div>
+        </div>
+        <button class="btn btn-primary full" type="submit">＋ Create Custom Target</button>
+      </form>
+      <div id="customTargetList"></div>
+    </div>
   </section>
-</section>
-</main>
-</div>
 
-<footer>
-  <button class="active" data-target="home" onclick="showPage('home',this)">⌂<br>Home</button>
-  <button data-target="targets" onclick="showPage('targets',this)">▤<br>Targets</button>
-  <button data-target="timerPage" onclick="showPage('timerPage',this)">◷<br>Timer</button>
-  <button data-target="reports" onclick="showPage('reports',this)">▥<br>Reports</button>
-  <button data-target="more" onclick="showPage('more',this)">⋯<br>More</button>
-</footer>
+  <!-- TIMER -->
+  <section id="timer" class="page">
+    <div class="section-title"><h2>⏱️ Focus Timer</h2><small>Stay consistent</small></div>
+    <div class="card timer-card">
+      <div class="eyebrow">FOCUS MODE</div>
+      <div class="timer-ring" style="width:230px">
+        <div class="time" id="timerDisplay2">00:00:00</div>
+        <div class="timer-status" id="timerStatus2">Ready</div>
+      </div>
+      <div class="timer-controls">
+        <button class="btn btn-primary start" id="startPauseBtn2" onclick="toggleTimer()">▶️ Start Studying</button>
+        <button class="btn" onclick="pauseTimer()">Ⅱ Pause</button>
+        <button class="btn" onclick="resetTimer()">↻ Reset</button>
+      </div>
+      <p class="notice">Start the timer when you begin studying. Your total time for today updates automatically.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="card"><h3>📚 Today's Study</h3><div class="stat-number" id="timerHours">0h 0m</div><div class="stat-caption">Total recorded focus time</div></div>
+      <div class="card"><h3>🎯 Daily Goal</h3><div class="stat-number" id="timerGoal">6 hours</div><div class="stat-caption">Keep moving toward your goal.</div></div>
+    </div>
+  </section>
 
-<script>
-let seconds=0;
-let interval=null;
-let lastValues={};
-let tasks=[
- {text:"Physics: revise one topic",done:false},
- {text:"Chemistry: solve practice questions",done:false},
- {text:"Maths: practise questions",done:false}
-];
+  <!-- REPORTS -->
+  <section id="reports" class="page">
+    <div class="section-title"><h2>📊 Study Reports</h2><small>Your progress</small></div>
+    <div class="stats-grid">
+      <div class="card"><h3>⏱️ Today's Study</h3><div class="stat-number" id="reportHours">0h 0m</div><div class="stat-caption">Recorded study time</div></div>
+      <div class="card"><h3>🎯 Tasks Completed</h3><div class="stat-number" id="reportTasks">0 / 0</div><div class="stat-caption">Today's task progress</div></div>
+      <div class="card"><h3>📈 Completion</h3><div class="stat-number" id="reportPercent">0%</div><div class="stat-caption">Tasks completed today</div></div>
+      <div class="card"><h3>🏁 Daily Goal</h3><div class="stat-number" id="reportGoal">0%</div><div class="stat-caption">Study hours against goal</div></div>
+    </div>
+    <div class="section-title"><h2>Today's Summary</h2></div>
+    <div class="card">
+      <div class="report-row"><span>Tasks planned</span><strong id="sumPlanned">0</strong></div>
+      <div class="report-row"><span>Tasks completed</span><strong id="sumDone">0</strong></div>
+      <div class="report-row"><span>Study time</span><strong id="sumTime">0 minutes</strong></div>
+      <div class="report-row"><span>Daily goal</span><strong id="sumGoal">6 hours</strong></div>
+      <p class="notice">Reports are based on your tasks and timer recorded in this browser.</p>
+    </div>
+    <div class="section-title"><h2>Recent Daily Activity</h2></div>
+    <div class="card"><div id="historyList"></div></div>
+  </section>
 
-function showPage(id,button){
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
- document.getElementById(id).classList.add("active");
- document.querySelectorAll("footer button").forEach(b=>b.classList.toggle("active",b===button));
- window.scrollTo({top:0,behavior:"smooth"});
-}
-function showTime(){
- let value=[Math.floor(seconds/3600),Math.floor(seconds%3600/60),seconds%60]
- .map(n=>String(n).padStart(2,"0")).join(":");
- document.getElementById("time").textContent=value;
- document.getElementById("timeLarge").textContent=value;
-}
-function status(text){
- document.getElementById("timerStatus").textContent=text;
- document.getElementById("timerStatusLarge").textContent=text;
-}
-function startTimer(){
- if(interval!==null)return;
- status("Study session running. Stay focused!");
- interval=setInterval(()=>{seconds++;showTime()},1000);
-}
-function pauseTimer(){
- clearInterval(interval);interval=null;
- status("Session paused. Resume when ready.");
-}
-function resetTimer(){
- pauseTimer();seconds=0;showTime();status("Timer reset. Ready for a fresh session.");
-}
-function flipValue(id,value){
- let el=document.getElementById(id),s=String(value);
- if(lastValues[id]===s)return;
- el.textContent=s;el.classList.remove("flip");void el.offsetWidth;el.classList.add("flip");
- lastValues[id]=s;
-}
-function updateCountdown(){
- let value=document.getElementById("examDate").value;
- if(!value)return;
- let diff=new Date(value+"T00:00:00").getTime()-Date.now();
- if(diff<=0){
-  ["days","hours","mins","secs"].forEach(id=>flipValue(id,0));
-  document.getElementById("countLabel").textContent="Your selected date has arrived or passed.";
-  return;
- }
- flipValue("days",Math.floor(diff/86400000));
- flipValue("hours",String(Math.floor(diff%86400000/3600000)).padStart(2,"0"));
- flipValue("mins",String(Math.floor(diff%3600000/60000)).padStart(2,"0"));
- flipValue("secs",String(Math.floor(diff%60000/1000)).padStart(2,"0"));
- document.getElementById("countLabel").textContent="Every second is a chance to move closer to your goal.";
-}
-document.getElementById("examDate").addEventListener("change",updateCountdown);
-setInterval(updateCountdown,1000);
-
-function escapeHtml(s){
- return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-}
-function renderTasks(){
- function rows(t,i){return `<label class="task ${t.done?"done":""}"><input type="checkbox" data-i="${i}" ${t.done?"checked":""}><span>${escapeHtml(t.text)}</span></label>`}
- document.getElementById("allTasks").innerHTML=tasks.map(rows).join("");
- document.getElementById("homeTasks").innerHTML=tasks.slice(0,3).map(rows).join("");
- updateProgress();
-}
-document.addEventListener("change",e=>{
- if(e.target.matches('#allTasks input[type="checkbox"],#homeTasks input[type="checkbox"]')){
-  let i=Number(e.target.dataset.i);
-  if(tasks[i])tasks[i].done=e.target.checked;
-  renderTasks();
- }
-});
-function addTask(){
- let input=document.getElementById("taskInput"),value=input.value.trim();
- if(!value){input.focus();return}
- tasks.push({text:value,done:false});input.value="";renderTasks();
-}
-function updateProgress(){
- let done=tasks.filter(t=>t.done).length,total=tasks.length;
- let pct=total?Math.round(done/total*100):0;
- document.getElementById("progress").textContent=`${done} of ${total} tasks completed`;
- document.getElementById("progressBar").style.width=pct+"%";
- document.getElementById("homeProgress").textContent=`${done} of ${total} tasks completed`;
- document.getElementById("reportDone").textContent=done;
- document.getElementById("reportTotal").textContent=total;
- document.getElementById("reportPct").textContent=pct+"%";
- document.getElementById("reportBar").style.width=pct+"%";
- document.getElementById("reportMessage").textContent=done===total?"All listed tasks complete — great work!":`${total-done} task(s) left on your checklist.`;
-}
-function saveMilestone(){
- let name=document.getElementById("nameInput").value.trim()||"My milestone";
- document.getElementById("examHeading").textContent="🎯 "+name;
- document.getElementById("saveStatus").textContent="Current goal: "+name;
-}
-renderTasks();showTime();updateCountdown();
-</script>
-</body>
-</html>
+  <!-- MORE -->
+  <section id="more" class="page">
+    <div class="section-title"><h2>⚙️ Settings & More</h2><small>Make it yours</small></div>
+    <div class="card">
+      <div class="setting-line">
+        <h3>👋 Your name</h3><p>Personalize your study dashboard.</p>
+        <form id="nameForm"><div class="form-row"><input id="userName" maxlength="40" placeholder="Enter your name"><button class="btn btn-primary" type="submit">Save</button></div></form>
+      </div>
+      <div class="setting-line">
+        <h3>🎓 Exam countdown</h3><p>Set the exam name and target date. The countdown updates automatically.</p>
+        <form id="examForm">
+          <div class="form-group"><label for="examName">Exam name</label><input id="examName" maxlength="60" placeholder="e.g. JEE Main 2027" required></div>
+          <div class="form-group"><label for="examDate">Exam date</label><input id="examDate" type="date" required></div>
+          <button class="btn btn-primary full" type="submit">Save Countdown</button>
+        </form>
+      </div>
+      <div class="setting-line">
+        <h3>🎯 Daily study goal</h3><p>Choose how many hours you want to study
