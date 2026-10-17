@@ -3,339 +3,523 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shyama | Focus on Your Dream</title>
+<meta name="theme-color" content="#070b14">
+<title>SHYAMA | Focus on Your Dream</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --bg: #070b14;
-  --card: #111a2b;
-  --teal: #42e8d1;
-  --gold: #f3c969;
-  --text: #f4f7ff;
-  --muted: #9ba9bd;
+  --bg:#070b14;
+  --card:#111b2c;
+  --teal:#45ead4;
+  --gold:#f3cc76;
+  --text:#f4f7ff;
+  --muted:#9eacc0;
+  --line:#2b3a50;
 }
-* { box-sizing: border-box; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-  margin: 0;
-  padding: 22px 16px 100px;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
+  margin:0;
+  padding:22px 14px 100px;
+  background:radial-gradient(ellipse at top,#172c40,transparent 45%),var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',Arial,sans-serif;
 }
+.app { max-width:760px; margin:auto; }
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:24px;
 }
 .logo {
-  font-size: 25px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  color: var(--teal);
+  font:800 28px 'Manrope',sans-serif;
+  letter-spacing:4px;
+  color:var(--teal);
 }
 .tag {
-  color: var(--gold);
-  font-size: 11px;
-  letter-spacing: 2px;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:2px;
+  margin-top:5px;
 }
+.spark { font-size:26px; color:var(--gold); }
 .hero {
-  background: linear-gradient(145deg,#182b40,#101421 75%);
-  border: 1px solid #29384a;
-  border-radius: 24px;
-  padding: 24px 20px;
-  margin-bottom: 18px;
+  background:linear-gradient(140deg,#1a3044,#101725);
+  border:1px solid #39485b;
+  border-radius:26px;
+  padding:27px 21px;
+  margin-bottom:18px;
 }
-.eyebrow {
-  color: var(--gold);
-  font-size: 11px;
-  letter-spacing: 2px;
+.eyebrow,.kicker {
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:700;
 }
 h1 {
-  font-size: 31px;
-  line-height: 1.2;
-  margin: 12px 0;
+  font:800 clamp(32px,7vw,43px)/1.15 'Manrope',sans-serif;
+  letter-spacing:-1px;
+  margin:17px 0;
 }
-h1 span { color: var(--teal); }
-p { color: var(--muted); line-height: 1.6; }
+h1 span { color:var(--teal); }
+p { color:var(--muted); line-height:1.7; }
 .card {
-  background: var(--card);
-  border: 1px solid #243248;
-  border-radius: 20px;
-  padding: 19px;
-  margin-bottom: 16px;
+  background:linear-gradient(145deg,#131e30,#101827);
+  border:1px solid var(--line);
+  border-radius:23px;
+  padding:21px 18px;
+  margin-bottom:17px;
 }
-.card h2 { margin: 0 0 12px; font-size: 18px; }
+.card h2 {
+  font:700 19px 'Manrope',sans-serif;
+  margin:8px 0 12px;
+}
+input {
+  width:100%;
+  padding:13px;
+  background:#080f1c;
+  border:1px solid #35445a;
+  color:white;
+  border-radius:12px;
+  margin:7px 0;
+  font-size:14px;
+}
+.note { font-size:12px; }
 .countdown {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 8px;
-  margin-top: 18px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+  margin-top:17px;
 }
 .unit {
-  text-align: center;
-  background: #080f1c;
-  padding: 12px 2px;
-  border-radius: 12px;
+  text-align:center;
+  overflow:hidden;
+  background:#080f1c;
+  border:1px solid #2b3d54;
+  border-radius:13px;
 }
-.unit strong {
-  display: block;
-  color: var(--teal);
-  font-size: 23px;
+.flip-top {
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(#1b2940,#111c2e);
+  color:var(--teal);
+  font:800 clamp(20px,5.5vw,28px) 'Manrope',sans-serif;
+  font-variant-numeric:tabular-nums;
 }
-.unit small { color: var(--muted); font-size: 10px; }
+.unit small {
+  display:block;
+  padding:9px 1px;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:1px;
+}
+.flip { animation:flip .3s ease; }
+@keyframes flip {
+  from { transform:perspective(150px) rotateX(-25deg); opacity:.5; }
+  to { transform:perspective(150px) rotateX(0); opacity:1; }
+}
 #time {
-  font-size: 38px;
-  font-weight: bold;
-  text-align: center;
-  margin: 18px 0;
-  font-variant-numeric: tabular-nums;
+  text-align:center;
+  font:800 clamp(35px,9vw,48px) 'Manrope',sans-serif;
+  margin:24px 0;
+  font-variant-numeric:tabular-nums;
 }
 button {
-  border: 0;
-  border-radius: 11px;
-  padding: 12px 15px;
-  font-weight: bold;
-  cursor: pointer;
+  border:0;
+  border-radius:12px;
+  padding:13px 16px;
+  font-weight:700;
+  cursor:pointer;
 }
-.primary { background: var(--teal); color: #06151a; }
+.primary {
+  background:linear-gradient(135deg,#58f2dc,#31d7bf);
+  color:#06151a;
+}
 .secondary {
-  background: #202d41;
-  color: var(--text);
-  border: 1px solid #35445a;
+  background:#202d41;
+  color:white;
+  border:1px solid #35445a;
 }
 .actions {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
 }
-input, select {
-  background: #080f1c;
-  color: white;
-  border: 1px solid #35445a;
-  border-radius: 10px;
-  padding: 12px;
-  width: 100%;
-  margin: 6px 0;
-}
-.task {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 0;
-  border-bottom: 1px solid #273449;
-}
-.task:last-child { border-bottom: 0; }
-.task input { width: 19px; margin: 0; accent-color: var(--teal); }
-.task.done span { text-decoration: line-through; color: var(--muted); }
 .subjects {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 9px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+  margin:15px 0;
 }
 .subject {
-  text-align: center;
-  padding: 15px 5px;
-  background: #080f1c;
-  border-radius: 13px;
-  color: var(--teal);
-  font-weight: bold;
+  padding:15px 4px;
+  text-align:center;
+  border:1px solid #293950;
+  border-radius:14px;
+  background:#080f1c;
+  color:var(--teal);
+  font-weight:800;
 }
 .subject small {
-  display: block;
-  color: var(--muted);
-  margin-top: 6px;
-  font-weight: normal;
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:7px;
+  font-weight:400;
+}
+.task {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid #28374c;
+  font-size:14px;
+}
+.task input {
+  width:19px;
+  height:19px;
+  margin:0;
+  accent-color:var(--teal);
+}
+.task.done span {
+  color:var(--muted);
+  text-decoration:line-through;
+}
+.quote {
+  font:600 18px/1.55 'Manrope',sans-serif;
+  color:#e3eafa;
+}
+.quote em { color:var(--teal); font-style:normal; }
+.page { display:none; }
+.page.active { display:block; }
+.photo-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.photo-card {
+  min-height:135px;
+  padding:13px;
+  display:flex;
+  align-items:flex-end;
+  background:linear-gradient(145deg,#244459,#101827 70%);
+  border:1px solid #35445a;
+  border-radius:16px;
+  color:white;
+  font-weight:700;
+}
+.photo-card small {
+  display:block;
+  color:#c2d0df;
+  font-size:10px;
+  margin-top:5px;
+}
+.track {
+  height:6px;
+  background:#080f1c;
+  border-radius:20px;
+  margin-top:12px;
+  overflow:hidden;
+}
+#progressBar {
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
 }
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #0c1321;
-  border-top: 1px solid #28364b;
-  display: flex;
-  justify-content: space-around;
-  padding: 13px 3px;
+  position:fixed;
+  z-index:10;
+  bottom:0;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:space-around;
+  background:#0a111ef5;
+  border-top:1px solid #2a394e;
+  padding:10px 2px;
 }
-footer a {
-  color: var(--muted);
-  font-size: 11px;
-  text-decoration: none;
-  text-align: center;
+footer button {
+  background:transparent;
+  color:var(--muted);
+  font-size:11px;
+  padding:5px;
 }
-footer a:first-child { color: var(--teal); }
-.note { font-size: 12px; }
+footer button.active { color:var(--teal); }
+@media(min-width:600px) {
+  body { padding-left:22px; padding-right:22px; }
+  .hero { padding:34px 30px; }
+  .card { padding:25px; }
+}
 </style>
 </head>
 
 <body>
+<div class="app">
 <header>
   <div>
     <div class="logo">SHYAMA</div>
     <div class="tag">YOUR DREAM. YOUR MISSION.</div>
   </div>
-  <div style="font-size:25px">✦</div>
+  <div class="spark">✦</div>
 </header>
 
-<section class="hero">
-  <div class="eyebrow">WELCOME TO YOUR FOCUS SPACE</div>
-  <h1>One dream.<br>One mission.<br><span>Keep moving.</span></h1>
-  <p>Small steps every day. Build the future you dream of.</p>
+<main>
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="eyebrow">WELCOME TO YOUR FOCUS SPACE</div>
+    <h1>One dream.<br>One mission.<br><span>Keep moving.</span></h1>
+    <p>Small steps every day. Build the future you dream of.</p>
+  </div>
+
+  <section class="card">
+    <div class="kicker">YOUR NEXT MILESTONE</div>
+    <h2 id="examHeading">🎯 JEE Main 2027</h2>
+    <p>Every focused day brings you closer.</p>
+    <label class="note" for="examDate">Choose countdown date</label>
+    <input id="examDate" type="date" value="2027-01-22">
+    <div class="countdown">
+      <div class="unit"><div class="flip-top" id="days">--</div><small>DAYS</small></div>
+      <div class="unit"><div class="flip-top" id="hours">--</div><small>HOURS</small></div>
+      <div class="unit"><div class="flip-top" id="mins">--</div><small>MINUTES</small></div>
+      <div class="unit"><div class="flip-top" id="secs">--</div><small>SECONDS</small></div>
+    </div>
+    <p class="note" id="countLabel"></p>
+  </section>
+
+  <section class="card">
+    <div class="kicker">ONE SESSION AT A TIME</div>
+    <h2>⏱ Study Timer</h2>
+    <p>Give your attention to one task at a time.</p>
+    <div id="time">00:00:00</div>
+    <div class="actions">
+      <button class="primary" onclick="startTimer()">▶️ Start</button>
+      <button class="secondary" onclick="pauseTimer()">Ⅱ Pause</button>
+      <button class="secondary" onclick="resetTimer()">↻ Reset</button>
+    </div>
+    <p class="note" id="timerStatus">Ready for your next session.</p>
+  </section>
+
+  <section class="card">
+    <div class="kicker">SMALL STEPS. BIG PROGRESS.</div>
+    <h2>📚 Today's Mission</h2>
+    <div class="subjects">
+      <div class="subject">Physics<small>Build concepts</small></div>
+      <div class="subject">Chemistry<small>Revise smartly</small></div>
+      <div class="subject">Maths<small>Practice daily</small></div>
+    </div>
+    <div id="homeTasks"></div>
+    <button class="secondary" style="width:100%" onclick="showPage('targets')">Open all targets →</button>
+    <p class="note" id="homeProgress"></p>
+  </section>
+
+  <section class="card">
+    <div class="kicker">KEEP YOUR REASON CLOSE</div>
+    <h2>✨ Remember Why You Started</h2>
+    <div class="quote">“Consistency turns effort into <em>progress.</em>”</div>
+    <p class="note">Your journey is built one session at a time.</p>
+  </section>
 </section>
 
-<section class="card">
-  <h2>🎯 JEE Main 2027</h2>
-  <p>Every focused day brings you closer.</p>
-  <label for="examDate" class="note">Choose your exam countdown date</label>
-  <input id="examDate" type="date" value="2027-01-22">
-  <div class="countdown">
-    <div class="unit"><strong id="days">--</strong><small>DAYS</small></div>
-    <div class="unit"><strong id="hours">--</strong><small>HOURS</small></div>
-    <div class="unit"><strong id="mins">--</strong><small>MINUTES</small></div>
-    <div class="unit"><strong id="secs">--</strong><small>SECONDS</small></div>
+<section class="page" id="targets">
+  <div class="hero">
+    <div class="eyebrow">PLAN. PRACTISE. PROGRESS.</div>
+    <h1>Your daily<br><span>mission.</span></h1>
+    <p>One completed task at a time adds up.</p>
   </div>
-  <p class="note" id="countLabel"></p>
+  <section class="card">
+    <h2>📚 Study Targets</h2>
+    <div id="allTasks"></div>
+    <input id="taskInput" placeholder="Add your own study task">
+    <button class="primary" onclick="addTask()">＋ Add Task</button>
+    <p class="note" id="progress">0 tasks completed</p>
+    <div class="track"><div id="progressBar"></div></div>
+  </section>
 </section>
 
-<section class="card">
-  <h2>⏱ Study Timer</h2>
-  <p>Give your attention to one task at a time.</p>
-  <div id="time">00:00:00</div>
-  <div class="actions">
-    <button class="primary" onclick="startTimer()">Start</button>
-    <button class="secondary" onclick="pauseTimer()">Pause</button>
-    <button class="secondary" onclick="resetTimer()">Reset</button>
+<section class="page" id="timerPage">
+  <div class="hero">
+    <div class="eyebrow">QUIET THE NOISE</div>
+    <h1>Enter your<br><span>focus zone.</span></h1>
+    <p>Start a session and focus on one task.</p>
   </div>
-  <p class="note" id="timerStatus">Ready for your next session.</p>
+  <section class="card">
+    <h2>⏱ Study Timer</h2>
+    <div id="timeLarge" style="text-align:center;font-size:38px;font-weight:800;margin:25px 0">00:00:00</div>
+    <div class="actions">
+      <button class="primary" onclick="startTimer()">▶️ Start</button>
+      <button class="secondary" onclick="pauseTimer()">Ⅱ Pause</button>
+      <button class="secondary" onclick="resetTimer()">↻ Reset</button>
+    </div>
+    <p class="note" id="timerStatusLarge">Ready for your next session.</p>
+    <p>This website timer does not block other apps.</p>
+  </section>
 </section>
 
-<section class="card">
-  <h2>📚 Today's Mission</h2>
-  <div class="subjects">
-    <div class="subject">Physics<small>Build concepts</small></div>
-    <div class="subject">Chemistry<small>Revise smartly</small></div>
-    <div class="subject">Maths<small>Practice daily</small></div>
+<section class="page" id="reports">
+  <div class="hero">
+    <div class="eyebrow">YOUR EFFORT MATTERS</div>
+    <h1>Progress is<br><span>built daily.</span></h1>
   </div>
-  <div id="tasks">
-    <label class="task"><input type="checkbox"><span>Physics: revise one topic</span></label>
-    <label class="task"><input type="checkbox"><span>Chemistry: solve practice questions</span></label>
-    <label class="task"><input type="checkbox"><span>Maths: practise questions</span></label>
-  </div>
-  <input id="taskInput" type="text" placeholder="Add your own study task">
-  <button class="primary" onclick="addTask()">+ Add Task</button>
-  <p class="note" id="progress">0 tasks completed</p>
+  <section class="card">
+    <h2>📊 Study Report</h2>
+    <div class="subjects">
+      <div class="subject"><span id="reportDone">0</span><small>Completed</small></div>
+      <div class="subject"><span id="reportTotal">3</span><small>Total tasks</small></div>
+      <div class="subject"><span id="reportPct">0%</span><small>Progress</small></div>
+    </div>
+    <div class="track"><div id="reportBar" style="height:100%;width:0;background:var(--teal)"></div></div>
+    <p id="reportMessage" class="note">Complete a task to build your report.</p>
+    <p class="note">This simple report shows checklist progress during this visit. Long-term history is not saved yet.</p>
+  </section>
 </section>
 
-<section class="card">
-  <h2>✨ Remember Why You Started</h2>
-  <p>“Consistency turns effort into progress.”</p>
-  <p class="note">Focus on what you can do today. Your journey is built one session at a time.</p>
+<section class="page" id="more">
+  <div class="hero">
+    <div class="eyebrow">MAKE IT YOUR SPACE</div>
+    <h1>Your goals.<br><span>Your journey.</span></h1>
+    <p>Keep your dream in sight.</p>
+  </div>
+  <section class="card">
+    <h2>📅 Countdown Settings</h2>
+    <label class="note" for="nameInput">Milestone name</label>
+    <input id="nameInput" value="JEE Main 2027">
+    <button class="primary" onclick="saveMilestone()">Save name</button>
+    <p class="note" id="saveStatus">Current goal: JEE Main 2027</p>
+  </section>
+  <section class="card">
+    <h2>🏛️ Campus Inspiration</h2>
+    <p>These cards are placeholders for your five original university photos. We will add the real pictures after uploading them to GitHub.</p>
+    <div class="photo-grid">
+      <div class="photo-card">01<br><small>NIT Jamshedpur</small></div>
+      <div class="photo-card">02<br><small>NIT Jamshedpur</small></div>
+      <div class="photo-card">03<br><small>NIT Jamshedpur</small></div>
+      <div class="photo-card">04<br><small>Jadavpur University</small></div>
+      <div class="photo-card" style="grid-column:1/-1">05<br><small>Your dream destination</small></div>
+    </div>
+  </section>
+  <section class="card">
+    <h2>✦ About Shyama</h2>
+    <p>Native Android app blocking needs an Android app and permissions. This website cannot block other apps by itself.</p>
+  </section>
 </section>
+</main>
+</div>
 
 <footer>
-  <a href="#top">⌂<br>Home</a>
-  <a href="#tasks">▤<br>Targets</a>
-  <a href="#time">◷<br>Timer</a>
-  <a href="#progress">▥<br>Reports</a>
+  <button class="active" data-target="home" onclick="showPage('home',this)">⌂<br>Home</button>
+  <button data-target="targets" onclick="showPage('targets',this)">▤<br>Targets</button>
+  <button data-target="timerPage" onclick="showPage('timerPage',this)">◷<br>Timer</button>
+  <button data-target="reports" onclick="showPage('reports',this)">▥<br>Reports</button>
+  <button data-target="more" onclick="showPage('more',this)">⋯<br>More</button>
 </footer>
 
 <script>
-let seconds = 0;
-let interval = null;
+let seconds=0;
+let interval=null;
+let lastValues={};
+let tasks=[
+ {text:"Physics: revise one topic",done:false},
+ {text:"Chemistry: solve practice questions",done:false},
+ {text:"Maths: practise questions",done:false}
+];
 
-function showTime() {
-  const h = String(Math.floor(seconds / 3600)).padStart(2,"0");
-  const m = String(Math.floor((seconds % 3600) / 60)).padStart(2,"0");
-  const s = String(seconds % 60).padStart(2,"0");
-  document.getElementById("time").textContent = `${h}:${m}:${s}`;
+function showPage(id,button){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ document.querySelectorAll("footer button").forEach(b=>b.classList.toggle("active",b===button));
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-
-function startTimer() {
-  if (interval !== null) return;
-  document.getElementById("timerStatus").textContent = "Study session running.";
-  interval = setInterval(() => {
-    seconds++;
-    showTime();
-  }, 1000);
+function showTime(){
+ let value=[Math.floor(seconds/3600),Math.floor(seconds%3600/60),seconds%60]
+ .map(n=>String(n).padStart(2,"0")).join(":");
+ document.getElementById("time").textContent=value;
+ document.getElementById("timeLarge").textContent=value;
 }
-
-function pauseTimer() {
-  clearInterval(interval);
-  interval = null;
-  document.getElementById("timerStatus").textContent = "Session paused.";
+function status(text){
+ document.getElementById("timerStatus").textContent=text;
+ document.getElementById("timerStatusLarge").textContent=text;
 }
-
-function resetTimer() {
-  pauseTimer();
-  seconds = 0;
-  showTime();
-  document.getElementById("timerStatus").textContent = "Timer reset.";
+function startTimer(){
+ if(interval!==null)return;
+ status("Study session running. Stay focused!");
+ interval=setInterval(()=>{seconds++;showTime()},1000);
 }
-
-function updateCountdown() {
-  const value = document.getElementById("examDate").value;
-  if (!value) return;
-  const target = new Date(value + "T00:00:00").getTime();
-  const diff = target - Date.now();
-
-  if (diff <= 0) {
-    ["days","hours","mins","secs"].forEach(id => {
-      document.getElementById(id).textContent = "0";
-    });
-    document.getElementById("countLabel").textContent =
-      "Your selected date has arrived or passed.";
-    return;
-  }
-
-  document.getElementById("days").textContent =
-    Math.floor(diff / 86400000);
-  document.getElementById("hours").textContent =
-    Math.floor(diff % 86400000 / 3600000);
-  document.getElementById("mins").textContent =
-    Math.floor(diff % 3600000 / 60000);
-  document.getElementById("secs").textContent =
-    Math.floor(diff % 60000 / 1000);
-  document.getElementById("countLabel").textContent =
-    "Countdown to your selected date.";
+function pauseTimer(){
+ clearInterval(interval);interval=null;
+ status("Session paused. Resume when ready.");
 }
-
-document.getElementById("examDate").addEventListener("change", updateCountdown);
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-function updateProgress() {
-  const boxes = [...document.querySelectorAll("#tasks input[type=checkbox]")];
-  let done = 0;
-  boxes.forEach(box => {
-    box.closest(".task").classList.toggle("done", box.checked);
-    if (box.checked) done++;
-  });
-  document.getElementById("progress").textContent =
-    `${done} of ${boxes.length} tasks completed`;
+function resetTimer(){
+ pauseTimer();seconds=0;showTime();status("Timer reset. Ready for a fresh session.");
 }
-
-document.getElementById("tasks").addEventListener("change", updateProgress);
-
-function addTask() {
-  const input = document.getElementById("taskInput");
-  const value = input.value.trim();
-  if (!value) {
-    input.focus();
-    return;
-  }
-  const label = document.createElement("label");
-  label.className = "task";
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  const span = document.createElement("span");
-  span.textContent = value;
-  label.append(checkbox, span);
-  document.getElementById("tasks").appendChild(label);
-  input.value = "";
-  updateProgress();
+function flipValue(id,value){
+ let el=document.getElementById(id),s=String(value);
+ if(lastValues[id]===s)return;
+ el.textContent=s;el.classList.remove("flip");void el.offsetWidth;el.classList.add("flip");
+ lastValues[id]=s;
 }
+function updateCountdown(){
+ let value=document.getElementById("examDate").value;
+ if(!value)return;
+ let diff=new Date(value+"T00:00:00").getTime()-Date.now();
+ if(diff<=0){
+  ["days","hours","mins","secs"].forEach(id=>flipValue(id,0));
+  document.getElementById("countLabel").textContent="Your selected date has arrived or passed.";
+  return;
+ }
+ flipValue("days",Math.floor(diff/86400000));
+ flipValue("hours",String(Math.floor(diff%86400000/3600000)).padStart(2,"0"));
+ flipValue("mins",String(Math.floor(diff%3600000/60000)).padStart(2,"0"));
+ flipValue("secs",String(Math.floor(diff%60000/1000)).padStart(2,"0"));
+ document.getElementById("countLabel").textContent="Every second is a chance to move closer to your goal.";
+}
+document.getElementById("examDate").addEventListener("change",updateCountdown);
+setInterval(updateCountdown,1000);
+
+function escapeHtml(s){
+ return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function renderTasks(){
+ function rows(t,i){return `<label class="task ${t.done?"done":""}"><input type="checkbox" data-i="${i}" ${t.done?"checked":""}><span>${escapeHtml(t.text)}</span></label>`}
+ document.getElementById("allTasks").innerHTML=tasks.map(rows).join("");
+ document.getElementById("homeTasks").innerHTML=tasks.slice(0,3).map(rows).join("");
+ updateProgress();
+}
+document.addEventListener("change",e=>{
+ if(e.target.matches('#allTasks input[type="checkbox"],#homeTasks input[type="checkbox"]')){
+  let i=Number(e.target.dataset.i);
+  if(tasks[i])tasks[i].done=e.target.checked;
+  renderTasks();
+ }
+});
+function addTask(){
+ let input=document.getElementById("taskInput"),value=input.value.trim();
+ if(!value){input.focus();return}
+ tasks.push({text:value,done:false});input.value="";renderTasks();
+}
+function updateProgress(){
+ let done=tasks.filter(t=>t.done).length,total=tasks.length;
+ let pct=total?Math.round(done/total*100):0;
+ document.getElementById("progress").textContent=`${done} of ${total} tasks completed`;
+ document.getElementById("progressBar").style.width=pct+"%";
+ document.getElementById("homeProgress").textContent=`${done} of ${total} tasks completed`;
+ document.getElementById("reportDone").textContent=done;
+ document.getElementById("reportTotal").textContent=total;
+ document.getElementById("reportPct").textContent=pct+"%";
+ document.getElementById("reportBar").style.width=pct+"%";
+ document.getElementById("reportMessage").textContent=done===total?"All listed tasks complete — great work!":`${total-done} task(s) left on your checklist.`;
+}
+function saveMilestone(){
+ let name=document.getElementById("nameInput").value.trim()||"My milestone";
+ document.getElementById("examHeading").textContent="🎯 "+name;
+ document.getElementById("saveStatus").textContent="Current goal: "+name;
+}
+renderTasks();showTime();updateCountdown();
 </script>
 </body>
 </html>
